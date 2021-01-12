@@ -12,8 +12,6 @@ See a working version of it [here](https://software-development-mastermind.githu
 
 <image src="images/digital-clock-screenshot.jpg">
 
-<br>
-
 ## Author
 
 * **Andy Sterkowitz** - *Full-Stack Software Developer* - [Website](https://andysterkowitz.com) | [LinkedIn](https://www.linkedin.com/in/andrewsterkowitz/)
