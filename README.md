@@ -10,7 +10,10 @@ See a working version of it [here](https://software-development-mastermind.githu
 
 <br>
 
-<image src="images/game_play_crop.png">
+<image src="images/digital-clock-screenshot.jpg">
+
+<br>
+<br>
 
 ## Author
 
