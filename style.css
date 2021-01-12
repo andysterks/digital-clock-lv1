@@ -1,0 +1,28 @@
+body {
+    background-color: #686868;
+    color: white;
+    font: arial;
+    min-width: 600px;
+}
+
+#time-display {
+    font-size: 120px;
+}
+
+#date-display {
+    font-size: 60px;
+}
+
+.clock-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.title-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 20px;
+}

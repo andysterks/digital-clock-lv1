@@ -6,10 +6,11 @@ function displayClock() {
   const day = Days.getDayByIndex(today.getDay());
   const month = Months.getMonthByIndex(today.getMonth());
   const date = addDateSuffix(today.getDate());
+  const year = today.getFullYear();
 
-  debugger;
+  dateDisplay.textContent = `${day}, ${month} ${date} ${year}`;
+
   const timeDisplay = document.getElementById('time-display');
-  timeDisplay.textContent = `${day}, ${month} ${date}`;
 
   const hours = addLeadingZero(today.getHours());
   const minutes = addLeadingZero(today.getMinutes());
@@ -23,27 +24,23 @@ function addLeadingZero(time) {
 }
 
 function addDateSuffix(date) {
-  const stDates = [ 1, 21, 31 ]
-
+  const stDates = [ 1, 21, 31 ];
   if (stDates.includes(date)) {
     return `${date}st`;
   }
 
-  if ([2, 22].includes(date)) {
+  const ndDates = [2, 22];
+  if (ndDates.includes(date)) {
     return `${date}nd`
   } 
 
-  if ([3, 23].includes(date)) {
+  const rdDates = [3, 23];
+  if (rdDates.includes(date)) {
     return `${date}rd`
   }
 
   return `${date}th`
 }
-
-/* const toggleButton = document.getElementById('toggle-btn');
-toggleButton.addEventListener('click', function(e) {
-
-}); */
 
 setInterval(displayClock, 1000);
 displayClock();
