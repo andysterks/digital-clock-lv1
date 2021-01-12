@@ -12,7 +12,7 @@ const Months = (function() {
     "October",
     "November",
     "December"
-  ]
+  ];
 
   function getMonthByIndex(index) {
     return months[index];
