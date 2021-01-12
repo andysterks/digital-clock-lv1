@@ -1,40 +1,85 @@
-let isMilitaryTime = false;
-
 function displayClock() {
   const today = new Date();
 
-  const dateDisplay = document.getElementById('date-display');
-
-  const day = Days.getDayByIndex(today.getDay());
-  const month = Months.getMonthByIndex(today.getMonth());
-  const date = DateUtility.addDateSuffix(today.getDate());
+  const day = getDayByIndex(today.getDay());
+  const month = getMonthByIndex(today.getMonth());
+  const date = addDateSuffix(today.getDate());
   const year = today.getFullYear();
 
+  const dateDisplay = document.getElementById('date-display');
   dateDisplay.textContent = `${day}, ${month} ${date} ${year}`;
 
+  const militaryHours = addLeadingZero(today.getHours());
+  const standardHours = getStandardHours(militaryHours);
+  const minutes = addLeadingZero(today.getMinutes());
+  const seconds = addLeadingZero(today.getSeconds());
+
   const timeDisplay = document.getElementById('time-display');
-
-  const militaryHours = DateUtility.addLeadingZero(today.getHours());
-  const standardHours = DateUtility.getStandardHours(militaryHours);
-  const minutes = DateUtility.addLeadingZero(today.getMinutes());
-  const seconds = DateUtility.addLeadingZero(today.getSeconds());
-
-  timeDisplay.textContent = isMilitaryTime 
-    ? `${militaryHours}:${minutes}:${seconds}`
-    : `${standardHours}:${minutes}:${seconds} ${militaryHours > 12 ? 'PM' : 'AM'}`;
+  timeDisplay.textContent = `${standardHours}:${minutes}:${seconds} ${militaryHours > 12 ? 'PM' : 'AM'}`
 }
 
-const toggleButton = document.getElementById('toggle-btn');
-toggleButton.addEventListener('click', function(e) {
-  isMilitaryTime = !isMilitaryTime;
+function addLeadingZero(time) {
+  if (time < 10) {
+    return "0" + time;
+  } else {
+    return time;
+  }
+}
 
-  this.textContent = isMilitaryTime 
-    ? 'Switch to Standard Time Format'
-    : 'Switch to Military Time Format'
-  
-  
-  displayClock();
-});
+function getStandardHours(militaryHours) {
+  if (militaryHours === 0) {
+    return 12
+  } else if (militaryHours > 12) {
+    return militaryHours - 12
+  } else {
+    return militaryHours
+  }
+}
+
+function addDateSuffix(date) {
+  if (date === 1 || date === 21 || date === 31) {
+    return date + "st";
+  } else if (date === 2 || date === 22) {
+    return date + "nd";
+  } else if (date === 3 || date === 23) {
+    return date + "rd";
+  } else {
+    return date + "th";
+  }
+}
+
+function getMonthByIndex(index) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+  return months[index];
+}
+
+function getDayByIndex(index) {
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+
+  return days[index];
+}
 
 setInterval(displayClock, 100);
 displayClock();
