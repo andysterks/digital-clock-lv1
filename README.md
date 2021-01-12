@@ -13,7 +13,6 @@ See a working version of it [here](https://software-development-mastermind.githu
 <image src="images/digital-clock-screenshot.jpg">
 
 <br>
-<br>
 
 ## Author
 
