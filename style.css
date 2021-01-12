@@ -25,4 +25,16 @@ body {
     margin: auto;
     text-align: center;
     padding-top: 20px;
+    font-size: 25px;
+}
+
+#toggle-btn {
+    padding: 10px 24px;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+}
+
+#toggle-btn:hover {
+    background-color: lightgrey;
+    cursor: pointer;
 }

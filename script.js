@@ -29,8 +29,8 @@ toggleButton.addEventListener('click', function(e) {
   isMilitaryTime = !isMilitaryTime;
 
   this.textContent = isMilitaryTime 
-    ? 'Standard Time Format'
-    : 'Military Time Format'
+    ? 'Switch to Standard Time Format'
+    : 'Switch to Military Time Format'
   
   
   displayClock();
