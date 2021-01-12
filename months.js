@@ -19,6 +19,6 @@ const Months = (function() {
   }
 
   return {
-    getMonthByIndex
+    getMonthByIndex: getMonthByIndex
   }
 })();

@@ -14,6 +14,6 @@ const Days = (function() {
   }
 
   return {
-    getDayByIndex
+    getDayByIndex: getDayByIndex
   }
 })();
