@@ -22,8 +22,19 @@ const DateUtility = (function () {
     return `${date}th`;
   }
 
+  function getStandardHours(militaryHours) {
+    if (militaryHours === 0) {
+      return 12;
+    }
+
+    return militaryHours > 12
+     ? militaryHours - 12
+     : militaryHours;
+  }
+
   return {
     addLeadingZero: addLeadingZero,
-    addDateSuffix: addDateSuffix
+    addDateSuffix: addDateSuffix,
+    getStandardHours: getStandardHours
   }
 })();

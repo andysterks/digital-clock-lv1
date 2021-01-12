@@ -1,3 +1,5 @@
+let isMilitaryTime = false;
+
 function displayClock() {
   const today = new Date();
 
@@ -12,12 +14,27 @@ function displayClock() {
 
   const timeDisplay = document.getElementById('time-display');
 
-  const hours = DateUtility.addLeadingZero(today.getHours());
+  const militaryHours = DateUtility.addLeadingZero(today.getHours());
+  const standardHours = DateUtility.getStandardHours(militaryHours);
   const minutes = DateUtility.addLeadingZero(today.getMinutes());
   const seconds = DateUtility.addLeadingZero(today.getSeconds());
 
-  timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+  timeDisplay.textContent = isMilitaryTime 
+    ? `${militaryHours}:${minutes}:${seconds}`
+    : `${standardHours}:${minutes}:${seconds} ${militaryHours > 12 ? 'PM' : 'AM'}`;
 }
 
-setInterval(displayClock, 1000);
+const toggleButton = document.getElementById('toggle-btn');
+toggleButton.addEventListener('click', function(e) {
+  isMilitaryTime = !isMilitaryTime;
+
+  this.textContent = isMilitaryTime 
+    ? 'Standard Time Format'
+    : 'Military Time Format'
+  
+  
+  displayClock();
+});
+
+setInterval(displayClock, 100);
 displayClock();
